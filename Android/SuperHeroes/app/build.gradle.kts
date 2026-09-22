@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
+    // 0 - Añadimos PArcelizable plugin
+    id("kotlin-parcelize")
 }
 
 android {

@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.iesch.superheroes.databinding.ActivityMainBinding
+import org.iesch.superheroes.model.SuperHeroe
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,9 +38,11 @@ class MainActivity : AppCompatActivity() {
             val alterEgo = binding.alterEgoEdit.text.toString()
             val bio = binding.alterEgoEdit.text.toString()
             val power = binding.power.rating
+            // 2 - Me creo el objeto SuperHeroe
+            val superHeroe = SuperHeroe(superHeroName,alterEgo,bio,power)
 
             // Qué quiero hacer cuando pulso el Boton Guardar
-            irADetailActivity(superHeroName, alterEgo, bio, power)
+            irADetailActivity(superHeroe)
         }
 
 
@@ -47,14 +50,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun irADetailActivity(superHeroName: String, alterEgo: String, bio: String, power: Float) {
+    fun irADetailActivity(superHeroe: SuperHeroe) {
         // Creamos el objeto Intent
         val intent = Intent(this, DetailActivity::class.java)
         // Añadimos todos los campos con el metodo putExtra
-        intent.putExtra("superHeroName", superHeroName)
-        intent.putExtra("alterEgo", alterEgo)
-        intent.putExtra("bio", bio)
-        intent.putExtra("power",power)
+        //intent.putExtra("superHeroName", superHeroName)
+        //intent.putExtra("alterEgo", alterEgo)
+        //intent.putExtra("bio", bio)
+        //intent.putExtra("power",power)
+        intent.putExtra( "superHero", superHeroe )
         // De esta manera, todos estos datos se enviarán al DetailActivity
         // Iniciamos la nueva actividad
         startActivity(intent)
