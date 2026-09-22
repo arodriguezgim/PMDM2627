@@ -10,26 +10,33 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import org.iesch.superheroes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    // 1 - Creamos la variable lateinit porque la vamos a inicializar luego
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        // 2 - Inicializamos el binding
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        // 3 - Usamos el binding para inflar la vista
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
         // A partir de aqui introduzo el codigo necesario
-        val botonGuardar = findViewById<Button>(R.id.btn_guardar)
-
-        botonGuardar.setOnClickListener {
+        // val botonGuardar = findViewById<Button>(R.id.btn_guardar)
+        binding.btnGuardar.setOnClickListener {
             // Obtenemos los valores al momento de hacer click
-            val superHeroName = findViewById<EditText>(R.id.hero_name_edit).text.toString()
-            val alterEgo = findViewById<EditText>(R.id.alter_ego_edit).text.toString()
-            val bio = findViewById<EditText>(R.id.bioEdit).text.toString()
-            val power = findViewById<RatingBar>(R.id.power).rating
+            val superHeroName = binding.heroNameEdit.text.toString()
+            val alterEgo = binding.alterEgoEdit.text.toString()
+            val bio = binding.alterEgoEdit.text.toString()
+            val power = binding.power.rating
 
             // Qué quiero hacer cuando pulso el Boton Guardar
             irADetailActivity(superHeroName, alterEgo, bio, power)
