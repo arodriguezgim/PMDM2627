@@ -1,5 +1,6 @@
 package org.iesch.superheroes
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.RatingBar
 import android.widget.TextView
@@ -35,7 +36,9 @@ class DetailActivity : AppCompatActivity() {
         }
 
         // Ultimo paso: Recibimos los datos del Main Activity
-        // val bundle = intent.extras!!
+        val bundle = intent.extras!!
+        val bitmap = bundle.getParcelable<Bitmap>("foto_heroe")
+
         // val superHeroName = bundle.getString("superHeroName") ?: "No hay nombre"
         // val alterEgo = bundle.getString("alterEgo") ?: "No hay AlterEgo"
         // val bio = bundle.getString("bio") ?: "No hay bio"
@@ -46,6 +49,9 @@ class DetailActivity : AppCompatActivity() {
         binding.alterEgoResult.text = superHeroe?.alterEgo ?: "No hay AlterEgo"
         binding.bioResult.text = superHeroe?.bio ?: "No hay bio"
         binding.ratingResult.rating = superHeroe?.power ?: 0f
+
+        // Asigno la imagen a la imageView
+        binding.imagenHeroeDetail.setImageBitmap( bitmap )
     }
 }
 

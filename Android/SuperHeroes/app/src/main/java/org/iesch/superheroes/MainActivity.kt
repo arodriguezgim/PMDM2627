@@ -12,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.iesch.superheroes.databinding.ActivityMainBinding
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
             val bio = binding.alterEgoEdit.text.toString()
             val power = binding.power.rating
             val superHeroe = SuperHeroe(superHeroName,alterEgo,bio,power)
+
             irADetailActivity(superHeroe)
         }
 
@@ -78,6 +80,8 @@ class MainActivity : AppCompatActivity() {
         //intent.putExtra("bio", bio)
         //intent.putExtra("power",power)
         intent.putExtra( "superHero", superHeroe )
+        // Añado el Objeto Bitmap al intent
+        intent.putExtra("foto_heroe", heroImage.drawable.toBitmap() )
         // De esta manera, todos estos datos se enviarán al DetailActivity
         // Iniciamos la nueva actividad
         startActivity(intent)
