@@ -14,7 +14,28 @@ class _ContadorScreenState extends State<ContadorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Contador App'), centerTitle: true),
+      appBar: AppBar(
+        title: Text('Contador App'), 
+        backgroundColor: Colors.purple.shade100,
+        centerTitle: true,
+        /*leading: IconButton(
+          onPressed: () {
+            contador = 0;
+            setState(() {});
+          }, 
+          icon: Icon(Icons.refresh_rounded)
+          ),*/
+        actions: [
+          IconButton(
+            onPressed: () {
+              contador = 0;
+              setState(() {});
+            }, 
+            icon: Icon(Icons.refresh_rounded)
+          ),
+
+        ],
+        ),
       body: Center(
         child: Column(
           mainAxisAlignment: .center,
@@ -23,20 +44,41 @@ class _ContadorScreenState extends State<ContadorScreen> {
               '$contador',
               style: TextStyle(fontSize: 160, fontWeight: .w100),
             ),
-            Text('Clicks', style: TextStyle(fontSize: 25)),
+            Text('Click${ contador == 1 ? '' : 's'}', style: TextStyle(fontSize: 25)),
+            /*if ( contador != 1) Text('Clicks', style: TextStyle(fontSize: 25)),
+            if ( contador == 1) Text('Click', style: TextStyle(fontSize: 25)),*/
           ],
         ),
       ),
       floatingActionButton: Column(
         mainAxisAlignment: .end,
         children: [
-          BotonPersonalizado(icono: Icons.refresh_rounded,),
+          FloatingActionButton(
+            shape: StadiumBorder(),
+            child: Icon(Icons.add),
+            onPressed: () {
+              contador++;
+              setState(() {});
+            }, ),
           SizedBox(height: 10,),
-          BotonPersonalizado(icono: Icons.plus_one,),
+          FloatingActionButton(
+            shape: StadiumBorder(),
+            child: Icon(Icons.exposure_minus_1),
+            onPressed: () {
+              if ( contador == 0) return;
+              contador--;
+              setState(() {});
+            }, ),
           SizedBox(height: 10,),
-          BotonPersonalizado(icono: Icons.exposure_minus_1,),
+          FloatingActionButton(
+            shape: StadiumBorder(),
+            child: Icon(Icons.refresh_rounded),
+            onPressed: () {
+              contador = 0;
+              setState(() {});
+            }, ),
         ],
-      ),
+      )
     );
   }
 }
