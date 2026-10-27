@@ -1,3 +1,4 @@
+import 'package:componentes/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'presentation/screens.dart';
 
@@ -21,7 +22,9 @@ class MyApp extends StatelessWidget {
         "card"     : (context) => CardScreen()
       },
       // onGenerateRoute gestiona donde vamos cuando la ruta con nombre no existe
-      onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) => CardScreen(),),
+      onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) => HomeScreen(),),
+      theme: AppTheme.lightTheme
+      // AppTheme.lightTheme
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:componentes/models/menu_option.dart';
+import 'package:componentes/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,8 +23,8 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (context, i ) => ListTile(
-          leading: Icon(menuOptions[i].icono, color: Colors.indigo,),
-          title: Text(menuOptions[i].nombre),
+          leading: Icon(menuOptions[i].icono, color: AppTheme.primary,),
+          title: Text(menuOptions[i].nombre,),
           onTap: () {
             Navigator.pushNamed(context, menuOptions[i].ruta );
             /*final route = MaterialPageRoute(
@@ -31,7 +32,7 @@ class HomeScreen extends StatelessWidget {
             );
             Navigator.push(context, route);*/
           },
-          trailing: Icon(Icons.arrow_forward_ios, color: Colors.red,),
+          trailing: Icon(Icons.arrow_forward_ios, color: AppTheme.primary,),
         ), 
         separatorBuilder: (_, __) => Divider(), 
         itemCount: menuOptions.length
