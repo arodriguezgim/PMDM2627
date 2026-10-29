@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       },
       // onGenerateRoute gestiona donde vamos cuando la ruta con nombre no existe
       onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) => HomeScreen(),),
-      theme: AppTheme( colorSeleccionado: 2 ).getTheme()
+      theme: AppTheme( colorSeleccionado: 8 ).getTheme()
       // AppTheme.lightTheme
     );
   }
