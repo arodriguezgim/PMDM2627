@@ -1,4 +1,6 @@
+import 'package:componentes/presentation/widgets.dart';
 import 'package:flutter/material.dart';
+
 
 class CardScreen extends StatelessWidget {
    
@@ -11,20 +13,20 @@ class CardScreen extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         children: [
+          CardTipo1(),
           Card(
-            //elevation: 0,
             child: Column(
               children: [
-                ListTile(
-                  leading: Icon( Icons.photo_album_outlined ),
-                  title: Text('Soy un título'),
-                  subtitle: Text('Velit sunt qui adipisicing exercitation cillum cupidatat non id sunt dolore qui.'),
-                )
+                Image(
+                  image: NetworkImage('https://imanesdeviaje.com/wp-content/uploads/2013/12/Lagos-de-Plitvice_11.jpg')
+                  )
               ],
             ),
           )
+
         ],
       )
     );
   }
 }
+
