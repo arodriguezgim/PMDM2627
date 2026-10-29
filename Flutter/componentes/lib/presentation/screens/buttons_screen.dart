@@ -22,11 +22,29 @@ class _Buttons extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ElevatedButton(onPressed: () {}, child: Text('Elevated Button')),
-        ElevatedButton(onPressed: null, child: Text('Elevated Button Disabled')),
-      ],
+    return SizedBox(
+      width: double.infinity,
+      child: Padding(
+        padding: EdgeInsetsGeometry.symmetric(horizontal: 10, vertical: 20),
+        child: Column(
+          children: [
+            //Elevated Buttons
+            ElevatedButton(onPressed: () {}, child: Text('Elevated Button')),
+            ElevatedButton(onPressed: null, child: Text('Elevated Button Disabled')),
+            ElevatedButton.icon(
+              onPressed: () {}, 
+              label: Text('Elevated Icon Button'),
+              icon: Icon(Icons.terminal),),
+            // Filled Buttons
+            FilledButton(
+              onPressed: () {}, 
+              child: Text('Filled'),
+            ),
+            FilledButton.icon(onPressed: (){}, label: Text('Filled Icon'), icon: Icon(Icons.dnd_forwardslash_outlined),)
+
+          ],
+        ),
+      ),
     );
   }
 }
