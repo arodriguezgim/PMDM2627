@@ -1,6 +1,36 @@
 import 'package:flutter/material.dart';
 
+const listaColores = <Color>[
+  Colors.blue,
+  Colors.teal,
+  Colors.green,
+  Colors.red,
+  Colors.purple,
+  Colors.deepPurple,
+  Colors.orange,
+  Colors.pink,
+  Colors.pinkAccent,
+];
+
 class AppTheme {
+
+  final int colorSeleccionado;
+
+  new({
+    this.colorSeleccionado = 0
+  }): assert( colorSeleccionado >= 0, 'El color seleccionado debe se mayor de 0'),
+      assert( colorSeleccionado < listaColores.length, 'El color seleccionado debe ser igual o menor que ${ listaColores.length - 1 }');
+
+  ThemeData getTheme() => ThemeData(
+    useMaterial3: true,
+    colorSchemeSeed: listaColores[ colorSeleccionado ],
+    // AppbarTheme
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+    )
+  );
+
+  
 
   // Color primario
   static const Color primary = Colors.orange;
@@ -30,4 +60,6 @@ class AppTheme {
 
     //scaffoldBackgroundColor: Colors.blueGrey
   );
+
+  
 }

@@ -1,5 +1,4 @@
 import 'package:componentes/models/menu_option.dart';
-import 'package:componentes/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,7 +8,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    // Acceder a los parámetros del tema
+    final colors = Theme.of(context).colorScheme;
+
+
+
     final menuOptions = <MenuOption>[
+      MenuOption(ruta: "buttons", icono: Icons.radio_button_on_outlined, nombre: "Botones - Buttons"),
       MenuOption(ruta: "listview1", icono: Icons.list_alt, nombre: "ListView Tipo 1"),
       MenuOption(ruta: "listview2", icono: Icons.list, nombre: "ListView Tipo 2"),
       MenuOption(ruta: "alert", icono: Icons.add_alert, nombre: "Alertas - Alerts"),
@@ -23,7 +28,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (context, i ) => ListTile(
-          leading: Icon(menuOptions[i].icono, color: AppTheme.primary,),
+          leading: Icon(menuOptions[i].icono, color: colors.primary,),
           title: Text(menuOptions[i].nombre,),
           onTap: () {
             Navigator.pushNamed(context, menuOptions[i].ruta );
@@ -32,7 +37,7 @@ class HomeScreen extends StatelessWidget {
             );
             Navigator.push(context, route);*/
           },
-          trailing: Icon(Icons.arrow_forward_ios, color: AppTheme.primary,),
+          trailing: Icon(Icons.arrow_forward_ios, color: colors.primary,),
         ), 
         separatorBuilder: (_, __) => Divider(), 
         itemCount: menuOptions.length

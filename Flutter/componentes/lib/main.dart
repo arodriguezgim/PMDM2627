@@ -19,11 +19,12 @@ class MyApp extends StatelessWidget {
         "listview1": (context) => ListView1Screen(),
         "listview2": (context) => ListView2Screen(), 
         "alert"    : (context) => AlertScreen(),
-        "card"     : (context) => CardScreen()
+        "card"     : (context) => CardScreen(),
+        "buttons"  :(context) => BotonesScreen()
       },
       // onGenerateRoute gestiona donde vamos cuando la ruta con nombre no existe
       onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) => HomeScreen(),),
-      theme: AppTheme.lightTheme
+      theme: AppTheme( colorSeleccionado: 2 ).getTheme()
       // AppTheme.lightTheme
     );
   }
