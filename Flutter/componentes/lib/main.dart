@@ -20,9 +20,10 @@ class MyApp extends StatelessWidget {
         "listview2": (context) => ListView2Screen(), 
         "alert"    : (context) => AlertScreen(),
         "card"     : (context) => CardScreen(),
-        "buttons"  :(context) => BotonesScreen(),
-        "slider"  :(context) => SliderScreen(),
-        "snack"  :(context) => SnackBarScreen(),
+        "buttons"  : (context) => BotonesScreen(),
+        "slider"   : (context) => SliderScreen(),
+        "snack"    : (context) => SnackBarScreen(),
+        "animated" : (context) => AnimatedScreen(),
       },
       // onGenerateRoute gestiona donde vamos cuando la ruta con nombre no existe
       onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) => HomeScreen(),),
