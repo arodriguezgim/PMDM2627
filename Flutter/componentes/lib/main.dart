@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
         "listview2": (context) => ListView2Screen(), 
         "alert"    : (context) => AlertScreen(),
         "card"     : (context) => CardScreen(),
-        "buttons"  :(context) => BotonesScreen()
+        "buttons"  :(context) => BotonesScreen(),
+        "slider"  :(context) => SliderScreen()
       },
       // onGenerateRoute gestiona donde vamos cuando la ruta con nombre no existe
       onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) => HomeScreen(),),

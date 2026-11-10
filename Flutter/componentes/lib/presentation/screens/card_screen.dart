@@ -15,7 +15,8 @@ class CardScreen extends StatelessWidget {
         children: [
           CardTipo1(),
           CardTipo2(urlImagen: 'https://imanesdeviaje.com/wp-content/uploads/2013/12/Lagos-de-Plitvice_11.jpg', texto: 'Fin de la Clase de Hoy',),
-     
+          CardTipo2(urlImagen: 'https://imanesdeviaje.com/wp-content/uploads/2013/12/Lagos-de-Plitvice_11.jpg', ),
+          CardTipo2(urlImagen: 'https://imanesdeviaje.com/wp-content/uploads/2013/12/Lagos-de-Plitvice_11.jpg', ),
 
         ],
       )

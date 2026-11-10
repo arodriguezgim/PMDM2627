@@ -6,7 +6,8 @@ class AlertScreen extends StatelessWidget {
   const AlertScreen({super.key});
 
   void mostrarAlerta(BuildContext context){
-    showDialog(
+    showAdaptiveDialog(
+      barrierDismissible: false,
       context: context, 
       builder: (context) {
         return AlertDialog(
@@ -19,6 +20,11 @@ class AlertScreen extends StatelessWidget {
               FlutterLogo( size: 100,)
             ],
           ),
+          actions: [
+            TextButton(onPressed: () => Navigator.pop(context), child: Text('Cancelar', style: TextStyle(color: Colors.redAccent),)),
+            TextButton(onPressed: () => Navigator.pop(context), child: Text('Ok')),
+          ],
+
         );
       },);
   }

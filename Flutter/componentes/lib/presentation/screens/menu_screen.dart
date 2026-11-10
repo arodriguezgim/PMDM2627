@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget {
       MenuOption(ruta: "listview2", icono: Icons.list, nombre: "ListView Tipo 2"),
       MenuOption(ruta: "alert", icono: Icons.add_alert, nombre: "Alertas - Alerts"),
       MenuOption(ruta: "card", icono: Icons.credit_card, nombre: "Tarjetas - Cards"),
+      MenuOption(ruta: "slider", icono: Icons.slideshow, nombre: "Sliders & Checks"),
     ];
 
 
