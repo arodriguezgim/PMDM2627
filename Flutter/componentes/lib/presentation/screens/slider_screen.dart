@@ -10,7 +10,7 @@ class SliderScreen extends StatefulWidget {
 
 class _SliderScreenState extends State<SliderScreen> {
 
-  double _valorSlider = 20;
+  double _valorSlider = 60;
   bool _sliderActivado = true;
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,8 @@ class _SliderScreenState extends State<SliderScreen> {
       body: Column(
         children: [
           Slider.adaptive(  
-            min: 0,
-            max: 100,
+            min: 30,
+            max: 400,
             value: _valorSlider, 
             onChanged: _sliderActivado ? 
             (value) {             
@@ -31,16 +31,48 @@ class _SliderScreenState extends State<SliderScreen> {
             : 
             null
           ),
-
+          /*
           Checkbox.adaptive(
             value: _sliderActivado, 
             onChanged: (value) {
               _sliderActivado = value ?? true;
-              setState(() {
-                
-              });
+              setState(() {});
             },
+          ),
+
+          Switch.adaptive(value: _sliderActivado, onChanged: (value) {
+              _sliderActivado = value;
+              setState(() {});
+            },),
+          
+          CheckboxListTile.adaptive(
+            title: Text('Habilitar Slider'),
+            secondary: Icon(Icons.access_alarm),
+            subtitle: Text('Esto es el subtítulo'),
+            value: _sliderActivado, 
+            onChanged: (value) {
+              _sliderActivado = value ?? true;
+              setState(() {});
+            },),*/
+          SwitchListTile.adaptive(
+            title: Text('Habilitar Slider') ,
+            value: _sliderActivado, 
+            onChanged: (value) {
+              _sliderActivado = value;
+              setState(() {});
+            },),
+
+          Expanded(
+            child: SingleChildScrollView(
+              child: Image(
+                image: NetworkImage('https://cdn.pixabay.com/photo/2020/07/06/17/51/batman-5377804_1280.png'),
+                fit: BoxFit.contain,
+                width:_valorSlider, 
+              ),
+            ),
           )
+            
+            
         ],
       )
     );
