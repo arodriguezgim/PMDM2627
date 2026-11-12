@@ -7,10 +7,22 @@ class CustomInputField extends StatelessWidget {
   final String? helperText;
   final IconData? icon;
   final IconData? suffixIcon;
+  final bool obscureText;
 
-  const new({super.key, this.hintText, this.labelText, this.helperText, this.icon, this.suffixIcon});
+  final TextInputType? keyboardType;
 
+  const new({
+    super.key, 
+    this.hintText, 
+    this.labelText, 
+    this.helperText, 
+    this.icon, 
+    this.suffixIcon, 
+    this.keyboardType,
+    this.obscureText = false
+    });
 
+  
 
 
 
@@ -19,6 +31,8 @@ class CustomInputField extends StatelessWidget {
     return TextFormField(
       initialValue: '',
       textCapitalization: .words,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
       onChanged: (value) {
         print( value );
       },

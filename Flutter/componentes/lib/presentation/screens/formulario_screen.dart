@@ -14,7 +14,33 @@ class FormularioScreen extends StatelessWidget {
           padding: EdgeInsetsGeometry.symmetric( horizontal: 20, vertical: 10),
           child: Column(
               children: [
-                CustomInputField(),
+                CustomInputField( labelText: 'Nombre', hintText: 'Nombre del usuario',),
+                SizedBox(height: 20,),
+                CustomInputField( labelText: 'Apellidos', hintText: 'Apellidos del usuario',),
+                SizedBox(height: 20,),
+                CustomInputField( labelText: 'Telefono', hintText: 'Teléfono del usuario', keyboardType: .phone,),
+                SizedBox(height: 20,),
+                CustomInputField( labelText: 'Email', hintText: 'Correo del usuario', keyboardType: .emailAddress,),
+                SizedBox(height: 20,),
+                CustomInputField( labelText: 'Contraseña', hintText: 'Password del usuario', obscureText: true,),
+                SizedBox(height: 20,),
+
+                DropdownButtonFormField(
+                  initialValue: 'Admin',
+                  items: [
+                    DropdownMenuItem(child: Text('Administrador'), value: 'Admin',),
+                    DropdownMenuItem(child: Text('Superusuario'), value: 'Superuser',),
+                    DropdownMenuItem(child: Text('Developer'), value: 'Developer',),
+                    DropdownMenuItem(child: Text('Jr. Developer'), value: 'Jr',)
+                  ], 
+                  onChanged: (value) {
+                    print( value );
+                  },),
+
+
+
+                SizedBox(height: 20,),
+                ElevatedButton(onPressed: null, child: Text('Guardar'))
 
               ],
             ),
