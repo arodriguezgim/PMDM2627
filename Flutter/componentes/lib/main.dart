@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         "slider"   : (context) => SliderScreen(),
         "snack"    : (context) => SnackBarScreen(),
         "animated" : (context) => AnimatedScreen(),
+        "formulario" : (context) => FormularioScreen(),
       },
       // onGenerateRoute gestiona donde vamos cuando la ruta con nombre no existe
       onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) => HomeScreen(),),
