@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gestor_de_estados/providers/contador_provider.dart';
+import 'package:provider/provider.dart';
 
 class Pagina1 extends StatelessWidget {
   const new({super.key});
@@ -7,7 +9,26 @@ class Pagina1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightGreenAccent,
-      body: Center(child: Text('Scaffold Page 1'),),
+      body: Column(
+        children: [
+          Center(child: Text(  context.watch<ContadorProvider>().contador.toString(), 
+                        style: TextStyle(fontSize: 120),), ),
+          ElevatedButton(
+              onPressed: () {   
+                // Aqui vamos a acceder al provider y llamar a la funcion incrementar()
+                context.read<ContadorProvider>().incrementar();         
+            }, 
+            child: Text('Incrementar')
+          ),
+          ElevatedButton(
+              onPressed: () {   
+                // Aqui vamos a acceder al provider y llamar a la funcion incrementar()
+                context.read<ContadorProvider>().decrementar();         
+            }, 
+            child: Text('Decrementar')
+          )
+        ],
+      ),
     );
   }
 }
