@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
 
 class CustomInputField extends StatelessWidget {
-
   final String? hintText;
   final String? labelText;
   final String? helperText;
   final IconData? icon;
   final IconData? suffixIcon;
   final bool obscureText;
-
   final TextInputType? keyboardType;
 
+  final Map<String, String> formValues;
+  final String formProperty;
+
   const new({
-    super.key, 
-    this.hintText, 
-    this.labelText, 
-    this.helperText, 
-    this.icon, 
-    this.suffixIcon, 
+    super.key,
+    this.hintText,
+    this.labelText,
+    this.helperText,
+    this.icon,
+    this.suffixIcon,
+    this.obscureText = false,
     this.keyboardType,
-    this.obscureText = false
-    });
-
-  
-
-
+    required this.formValues,
+    required this.formProperty,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +32,9 @@ class CustomInputField extends StatelessWidget {
       textCapitalization: .words,
       keyboardType: keyboardType,
       obscureText: obscureText,
-      onChanged: (value) {
-        print( value );
-      },
+      onChanged: (value) => formValues[formProperty] = value,
       validator: (value) {
-        if ( value == null ) return 'Este campo es requerido';
+        if (value == null) return 'Este campo es requerido';
         return value.length < 3 ? 'Mínimo de 3 caracteres' : null;
       },
       autovalidateMode: .onUserInteraction,
@@ -46,9 +43,9 @@ class CustomInputField extends StatelessWidget {
         labelText: labelText,
         helperText: helperText,
         //counterText: 'Contador'
-        suffixIcon: suffixIcon == null ? null : Icon( suffixIcon ),
+        suffixIcon: suffixIcon == null ? null : Icon(suffixIcon),
         //prefixIcon: Icon( Icons.group_off_outlined),
-        icon: icon == null ? null : Icon( icon ),
+        icon: icon == null ? null : Icon(icon),
         /*
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
