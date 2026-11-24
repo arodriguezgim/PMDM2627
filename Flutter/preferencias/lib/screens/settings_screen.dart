@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:preferencias/config/preferences/preferencias.dart';
 
 class SettingsScreen extends StatefulWidget {
    
@@ -25,38 +26,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
           CheckboxListTile.adaptive(
             title: Text('Permiso de Ubicación'),
-            value: _permisoUbicacion, 
+            value: Preferencias.permisoUbicacion,
             onChanged: (value) {
-              _permisoUbicacion = value!;
+              Preferencias.permisoUbicacion = value!;
               setState(() {});
             },),
 
           CheckboxListTile.adaptive(
             title: Text('Permiso de Cámara'),
-            value: _permisoCamara, 
+            value: Preferencias.permisoCamara, 
             onChanged: (value) {
-              _permisoCamara = value!;
+              Preferencias.permisoCamara = value!;
               setState(() {});
             },),
 
           CheckboxListTile.adaptive(
             title: Text('Tema Dark'),
-            value: _temaOscuro, 
+            value: Preferencias.darkMode, 
             onChanged: (value) {
-              _temaOscuro = value!;
+              Preferencias.isDarkMode = value!;
               setState(() {});
             },),
           Divider(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: TextFormField(
-              initialValue: _nombre,
+              initialValue: Preferencias.nombre,
               decoration: InputDecoration(
                 label: Text('Nombre'),
                 helperText: 'Nombre de usuario'
               ),
               onChanged: (value) {
-                _nombre = value;
+                Preferencias.nombre = value;
+                
               },
             ),
           )
