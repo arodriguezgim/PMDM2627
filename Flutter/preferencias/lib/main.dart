@@ -14,10 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool tema = Preferencias.darkMode;
+    print('Tema es oscuro?: $tema' );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Shared Preferences',
-      home: SettingsScreen()
+      home: SettingsScreen(),
+      theme: tema ? .dark() : .light(),
+      darkTheme: ThemeData.dark(),
+      // themeMode: tema ? .dark : .light,
     );
   }
 }

@@ -24,7 +24,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(title: Text('Preferencias'),),
       body: Column(
         children: [
-          CheckboxListTile.adaptive(
+          SwitchListTile.adaptive(
             title: Text('Permiso de Ubicación'),
             value: Preferencias.permisoUbicacion,
             onChanged: (value) {
@@ -32,7 +32,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               setState(() {});
             },),
 
-          CheckboxListTile.adaptive(
+          SwitchListTile.adaptive(
             title: Text('Permiso de Cámara'),
             value: Preferencias.permisoCamara, 
             onChanged: (value) {
@@ -40,7 +40,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               setState(() {});
             },),
 
-          CheckboxListTile.adaptive(
+          SwitchListTile.adaptive(
             title: Text('Tema Dark'),
             value: Preferencias.darkMode, 
             onChanged: (value) {
